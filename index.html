@@ -1,6 +1,40 @@
+<!DOCTYPE html>
 <html>
-<body>
-        <h1>Host: <!--#echo var="HOSTNAME" --></h1>
-        Version: 1.1
+  <head>
+    <script type="text/javascript">
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        // add a zero in front of numbers<10
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+        //t=setTimeout('startTime()',500);
+      }
+              
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        
+        return i;
+      }
+    </script>
+  </head>
+<body onload="startTime()">
+  <div><img style="float: left;" src="https://pbs.twimg.com/profile_images/655614062261325824/tDCzW0KH_400x400.png" alt="Image result for codevalue logo" width="63" height="63" /></div>
+  <h1 style="text-align: center;">&nbsp;</h1>
+  <h1 style="text-align: center;">&nbsp;</h1>
+  <h1 style="text-align: center;">Hello&nbsp;<img src="https://upload.wikimedia.org/wikipedia/he/a/ab/Elbit_Systems.png" alt="Image result for elbit" width="145" height="53" /></h1>
+  <h1 style="text-align: center;">We are about to have real fun today with Docker!</h1>
+  <p>&nbsp;</p>
+  <p style="text-align: center;"><img src="https://blog.iron.io/wp-content/uploads/2016/01/platform-docker-logo.png" alt="Image result for docker logo" />&nbsp;</p>
+  <p style="text-align: center;">&nbsp;</p>
+  <div id="txt" style="text-align: center;">&nbsp;&gt;</div>
 </body>
 </html>
