@@ -1,20 +1,8 @@
-<!DOCTYPE html>
 <html>
   <head>
     <script type="text/javascript">
-      function startTime()
-      {
-        var today=new Date();
-        var h=today.getHours();
-        var m=today.getMinutes();
-        var s=today.getSeconds();
-        // add a zero in front of numbers<10
-        m=checkTime(m);
-        s=checkTime(s);
-        document.getElementById('txt').innerHTML=h+":"+m+":"+s;
-        //t=setTimeout('startTime()',500);
-      }
-              
+      var hitTime=new Date();
+   
       function checkTime(i)
       {
         if (i<10)
@@ -24,9 +12,21 @@
         
         return i;
       }
+
+      function spentTimeOnPage(){
+        var today=new Date();
+        var h=today.getHours() - hitTime.getHours();
+        var m=today.getMinutes() - hitTime.getMinutes();
+        var s=today.getSeconds() - hitTime.getSeconds();
+
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('txt').innerHTML="Page Activation Time: " + h+":"+m+":"+s;
+        t=setTimeout('spentTimeOnPage()',500);
+      }
     </script>
   </head>
-<body onload="startTime()">
+<body onload="spentTimeOnPage()">
   <div><img style="float: left;" src="https://pbs.twimg.com/profile_images/655614062261325824/tDCzW0KH_400x400.png" alt="Image result for codevalue logo" width="63" height="63" /></div>
   <h1 style="text-align: center;">&nbsp;</h1>
   <h1 style="text-align: center;">&nbsp;</h1>
@@ -35,6 +35,10 @@
   <p>&nbsp;</p>
   <p style="text-align: center;"><img src="https://blog.iron.io/wp-content/uploads/2016/01/platform-docker-logo.png" alt="Image result for docker logo" />&nbsp;</p>
   <p style="text-align: center;">&nbsp;</p>
-  <div id="txt" style="text-align: center;">&nbsp;&gt;</div>
+  <div id="txt" style="text-align: center;">
+          
+        
+        &nbsp;&gt;
+</div>
 </body>
 </html>
